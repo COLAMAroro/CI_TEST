@@ -7,8 +7,8 @@
 
 int fibonnaci(int n)
 {
-    int first = 2;
-    int second = 3;
+    int first = 0;
+    int second = 1;
 
     int tmp;
     while (n--) {
