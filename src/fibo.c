@@ -7,10 +7,14 @@
 
 int fibonnaci(int n)
 {
-    if (n <= 0)
-        return 0;
-    if (n == 1)
-        return 1;
-    else
-        return fibonnaci(n-1) + fibonnaci(n-2);
+    int first = 2;
+    int second = 3;
+
+    int tmp;
+    while (n--) {
+        tmp = first+second;
+        first = second;
+        second = tmp;
+    }
+    return first;
 }
