@@ -5,11 +5,8 @@ on:
     branches: [ master ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build the project
@@ -18,4 +15,14 @@ jobs:
                       -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" \n
                       -v "/home/runner/work/<repo>/<repo>":"/github/workspace" \n
                       epitechcontent/epitest-docker:latest make -C /github/workspace/
-                     
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the project
+      run: docker run -v "/var/run/docker.sock":"/var/run/docker.sock" \n
+                      -v "/home/runner/work/_temp/_github_home":"/github/home" \n
+                      -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" \n
+                      -v "/home/runner/work/<repo>/<repo>":"/github/workspace" \n
+                      epitechcontent/epitest-docker:latest /github/workspace/run_tests.sh
