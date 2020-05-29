@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-cd tests
+cd /github/workspace/tests
 make && ./tests
