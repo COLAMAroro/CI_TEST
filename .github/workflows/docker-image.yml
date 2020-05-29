@@ -46,10 +46,10 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: tests build result
-          path: tests_build.txt
+          path: tests/tests_build.txt
       - name: Upload the test results
         uses: actions/upload-artifact@v1
         with:
           name: tests results
-          path: tests_results.txt
+          path: tests/tests_results.txt
      
