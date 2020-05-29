@@ -8,36 +8,43 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build the project
-      
+      - name: Checkout the project
       - uses: actions/checkout@v2
+
+      - name: Build the project
+        run: docker run -v "/var/run/docker.sock":"/var/run/docker.sock"
+                      -v "/home/runner/work/_temp/_github_home":"/github/home"
+                      -v "/home/runner/work/_temp/_github_workflow":"/github/workflow"
+                      -v "/home/runner/work/CI_TEST/CI_TEST":"/github/workspace"
+                      epitechcontent/epitest-docker:latest /github/workspace/build_project.sh
+      
+      - name: Push the artifacts
       - uses: actions/upload-artifact@v1
         with:
           name: build results
           path: build_results.txt
 
-      run: docker run -v "/var/run/docker.sock":"/var/run/docker.sock"
-                      -v "/home/runner/work/_temp/_github_home":"/github/home"
-                      -v "/home/runner/work/_temp/_github_workflow":"/github/workflow"
-                      -v "/home/runner/work/CI_TEST/CI_TEST":"/github/workspace"
-                      epitechcontent/epitest-docker:latest /github/workspace/build_project.sh
-
   test:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Build the project
-
+      - name: Checkout the project
       - uses: actions/checkout@v2
-      - uses: actions/upload-artifact@v1
-        with:
-          name: tests build result
-          path: tests_build.txt
-        with:
-          name: tests results
-          path: tests_results.txt
-      run: docker run -v "/var/run/docker.sock":"/var/run/docker.sock"
+      
+      - name: Build the project
+        run: docker run -v "/var/run/docker.sock":"/var/run/docker.sock"
                       -v "/home/runner/work/_temp/_github_home":"/github/home"
                       -v "/home/runner/work/_temp/_github_workflow":"/github/workflow"
                       -v "/home/runner/work/CI_TEST/CI_TEST":"/github/workspace"
                       epitechcontent/epitest-docker:latest /github/workspace/run_tests.sh
+
+      - name: Push the artifacts
+      - uses: actions/upload-artifact@v1
+        with:
+          name: tests build result
+          path: tests_build.txt
+      - uses: actions/upload-artifact@v1
+        with:
+          name: tests results
+          path: tests_results.txt
+          
