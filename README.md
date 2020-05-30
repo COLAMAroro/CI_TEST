@@ -1,6 +1,6 @@
 # CI_TEST
-Testing continous integration with GitHub actions for EPITECH
+Testing continous integration with GitHub Actions for EPITECH
 
-This repo serve as an example for EPITECH student wanting to try out Continuous Development et Continuous Delivery
+This repo serves as an example for EPITECH students who want to try out *Continuous Development* and *Continuous Delivery*.
 
-Every example here can ba taken as example
+Every example here can be taken as an example.
