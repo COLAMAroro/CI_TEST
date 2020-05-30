@@ -20,6 +20,8 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: checkout the current repo
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
 
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2
@@ -33,4 +35,5 @@ jobs:
         git config --global user.email "corentin.rondier@epitech.eu"
         git config --global user.name "Corentin Rondier on GitHub Actions"
         git remote add blih git@git.epitech.eu:/corentin.rondier@epitech.eu/CI_TEST
+        git remote add github 
         git push blih master
