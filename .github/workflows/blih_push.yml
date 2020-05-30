@@ -22,14 +22,15 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install SSH key
-      uses: shimataro/ssh-key-action@v2
+      uses: webfactory/ssh-agent@v0.2.0
       with:
-        key: ${{ secrets.SSH_KEY }}
-        name: id_rsa
-        known_hosts: ${{ secrets.KNOWN_HOSTS }}
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     - name: Print the supposed installed key
       run: cat ~/.ssh/id_rsa
+    
+    - name: Install EPITECH known_hosts
+      run: ssh-keyscan git.epitech.eu >> ~/.ssh/known_hosts
 
     - name: Push to BLIH
       run: |
