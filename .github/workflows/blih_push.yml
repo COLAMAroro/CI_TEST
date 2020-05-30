@@ -34,6 +34,5 @@ jobs:
       run: |
         git config --global user.email "corentin.rondier@epitech.eu"
         git config --global user.name "Corentin Rondier on GitHub Actions"
-        git remote add blih git@git.epitech.eu:/corentin.rondier@epitech.eu/CI_TEST
-        git remote add github 
+        git remote add blih "git@git.epitech.eu:/corentin.rondier@epitech.eu/CI_TEST"
         git push blih master
