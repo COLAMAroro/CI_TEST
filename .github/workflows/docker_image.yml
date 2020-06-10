@@ -16,7 +16,7 @@ jobs:
         run: docker run -v "/var/run/docker.sock":"/var/run/docker.sock"
                         -v "/home/runner/work/_temp/_github_home":"/github/home"
                         -v "/home/runner/work/_temp/_github_workflow":"/github/workflow"
-                        -v "/home/runner/work/CI_TEST/CI_TEST":"/github/workspace"
+                        -v "/home/runner/work/`echo $GITHUB_REPOSITORY | cut -d "/" -f 2`/`echo $GITHUB_REPOSITORY | cut -d "/" -f 2`":"/github/workspace"
                         epitechcontent/epitest-docker:latest /github/workspace/build_project.sh
 
       - name: Upload the results
