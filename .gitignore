@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+build_result.txt
+tests/tests_build.txt
+tests/tests_results.txt
