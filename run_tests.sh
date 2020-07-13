@@ -1,6 +1,10 @@
 #!/usr/bin/bash
 
-cd /github/workspace/tests/ &&
+workdir=/github/workspace
+
+[ -d $workdir ] || workdir=./
+
+cd $workdir &&
 make |& tee tests_build.txt
 makereturnval=${PIPESTATUS[0]}
 [ $makereturnval -eq 0 ] || exit $makereturnval
