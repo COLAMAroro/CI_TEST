@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 
-workdir=/github/workspace
+workdir=/github/workspace/tests
 
-[ -d $workdir ] || workdir=./
+[ -d $workdir ] || workdir=./tests
 
 cd $workdir &&
 make |& tee tests_build.txt
