@@ -2,7 +2,7 @@
 
 workdir=/github/workspace
 
-[ -d workdir ] || workdir=./
+[ -d $workdir ] || workdir=./
 
 cd $workdir &&
 make |& tee build_results.txt
